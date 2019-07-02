@@ -1,0 +1,69 @@
+
+<div class="selection">
+         <div class="row">
+                <div class="col-sm-4">
+            <form [formGroup]="createAccountForm">
+              <div class="form-group">
+                   
+                <select formControlName="years" class="form-control" (change)="onChangeYear($event.target.value)" [(ngModel)]="selectedyear">
+                  <option value="">Select year...</option>
+                  <option *ngFor="let year of years" [value]="year.name">{{year.name}}</option>
+                </select>
+             
+            </div>
+              <br>
+              <div class="form-group">
+                   
+                <select formControlName="batches" class="form-control" (change)="onChangeBatch($event.target.value)" [(ngModel)]="selectedbatch">
+                  <option value="">Select batch...</option>
+                  <option *ngFor="let batchinfo of batches" [value]="batchinfo.bname">{{batchinfo.bname}}</option>
+                </select>
+             
+              </div>
+              <br>
+              <div class="form-group">
+                   
+                <select formControlName="tests" class="form-control" [(ngModel)]="selectedtest">
+                  <option value="">Select test...</option>
+                  <option *ngFor="let t of tests" [value]="t">{{t}}</option>
+                </select>
+              </div>
+            </form>
+        </div>
+        </div>
+      </div>
+
+
+<button (click)="myfunc()">GO</button>
+            <table *ngIf="report">
+                <thead>
+                    <tr>
+                        
+                        <th>Student Name</th>
+                        <th>Score</th>
+                        <th>Correct</th>
+                        <th>Incorrect</th>
+                        <!-- <th>Rank</th> -->
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of report">
+                    
+                        <!-- <td>{{product.studentname}}</td>
+                        <td>{{product.score}}</td>
+                        <td>{{product.correct}}</td>
+                        <td>{{product.incorrect}}</td>
+                        <td>{{product.rank}}</td> -->
+                        <td>{{product.gradEmployee.employeeName}}</td>
+                        <td>{{product.score}}</td>
+                        <td>{{product.correctQuestions}}</td>
+                        <td>{{product.incorrectQuestions}}</td>
+                    </tr>
+                    
+                
+                </tbody>
+                
+            </table>
+        
+   
